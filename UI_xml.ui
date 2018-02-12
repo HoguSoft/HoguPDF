@@ -9,20 +9,20 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>482</width>
-    <height>371</height>
+    <width>498</width>
+    <height>505</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>HoguPDF</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QPushButton" name="pushButton">
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>310</y>
-      <width>141</width>
+      <y>440</y>
+      <width>451</width>
       <height>31</height>
      </rect>
     </property>
@@ -36,69 +36,120 @@
       <x>20</x>
       <y>20</y>
       <width>451</width>
-      <height>281</height>
+      <height>321</height>
      </rect>
     </property>
     <property name="title">
-     <string/>
+     <string>&lt;PDF 리스트&gt;</string>
+    </property>
+    <property name="flat">
+     <bool>false</bool>
     </property>
     <property name="checkable">
      <bool>false</bool>
     </property>
-    <widget class="QLabel" name="label">
-     <property name="geometry">
-      <rect>
-       <x>10</x>
-       <y>25</y>
-       <width>421</width>
-       <height>21</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>Empty</string>
-     </property>
-    </widget>
-    <widget class="QColumnView" name="columnView">
+    <widget class="QListWidget" name="listWidget">
      <property name="geometry">
       <rect>
        <x>20</x>
-       <y>60</y>
+       <y>30</y>
        <width>411</width>
-       <height>201</height>
+       <height>192</height>
       </rect>
      </property>
     </widget>
+    <widget class="QPushButton" name="pushButton_4">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>240</y>
+       <width>93</width>
+       <height>28</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>위 이동</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pushButton_5">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>280</y>
+       <width>93</width>
+       <height>28</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>아래 이동</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pushButton_6">
+     <property name="geometry">
+      <rect>
+       <x>180</x>
+       <y>240</y>
+       <width>93</width>
+       <height>71</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>리스트 추가</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pushButton_7">
+     <property name="geometry">
+      <rect>
+       <x>340</x>
+       <y>240</y>
+       <width>93</width>
+       <height>71</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>리스트 제거</string>
+     </property>
+    </widget>
    </widget>
-   <widget class="QPushButton" name="pushButton_2">
+   <widget class="QGroupBox" name="groupBox_2">
     <property name="geometry">
      <rect>
-      <x>180</x>
-      <y>310</y>
-      <width>131</width>
-      <height>31</height>
+      <x>20</x>
+      <y>350</y>
+      <width>451</width>
+      <height>80</height>
      </rect>
     </property>
-    <property name="text">
-     <string>불러오기</string>
+    <property name="title">
+     <string>&lt;저장 위치&gt;</string>
     </property>
-   </widget>
-   <widget class="QPushButton" name="pushButton_3">
-    <property name="geometry">
-     <rect>
-      <x>330</x>
-      <y>310</y>
-      <width>131</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>경로설정</string>
-    </property>
+    <widget class="QListWidget" name="listWidget_2">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>30</y>
+       <width>321</width>
+       <height>31</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pushButton_2">
+     <property name="geometry">
+      <rect>
+       <x>350</x>
+       <y>30</y>
+       <width>93</width>
+       <height>28</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>설정</string>
+     </property>
+    </widget>
    </widget>
    <zorder>groupBox</zorder>
    <zorder>pushButton</zorder>
-   <zorder>pushButton_2</zorder>
-   <zorder>pushButton_3</zorder>
+   <zorder>groupBox_2</zorder>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
