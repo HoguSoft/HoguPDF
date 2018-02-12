@@ -7,6 +7,7 @@
 # WARNING! All changes made in this file will be lost!
 
 from PyQt5 import QtCore, QtGui, QtWidgets
+from PyQt5.QtWidgets import *
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -42,7 +43,7 @@ class Ui_MainWindow(object):
         self.groupBox_2.setGeometry(QtCore.QRect(20, 350, 451, 80))
         self.groupBox_2.setObjectName("groupBox_2")
         self.listWidget_2 = QtWidgets.QListWidget(self.groupBox_2)
-        self.listWidget_2.setGeometry(QtCore.QRect(20, 30, 321, 31))
+        self.listWidget_2.setGeometry(QtCore.QRect(20, 20, 321, 51))
         self.listWidget_2.setObjectName("listWidget_2")
         self.pushButton_2 = QtWidgets.QPushButton(self.groupBox_2)
         self.pushButton_2.setGeometry(QtCore.QRect(350, 30, 93, 28))
@@ -59,6 +60,10 @@ class Ui_MainWindow(object):
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
         self.pushButton_6.clicked.connect(self.add_PDF)
+        self.pushButton_2.clicked.connect(self.set_PDF)
+        self.pushButton_7.clicked.connect(self.del_PDF)
+        self.pushButton_4.clicked.connect(self.up_PDF)
+        self.pushButton_5.clicked.connect(self.down_PDF)
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
@@ -73,7 +78,22 @@ class Ui_MainWindow(object):
         self.pushButton_2.setText(_translate("MainWindow", "설정"))
 
     def add_PDF(self):
-        
+        fname = QFileDialog.getOpenFileName(None)
+        self.listWidget.addItem(QListWidgetItem(fname[0]))
+
+    def set_PDF(self):
+        dirname = QFileDialog.getExistingDirectory(None)
+        self.listWidget_2.clear()
+        self.listWidget_2.addItem(QListWidgetItem(dirname))
+
+    def del_PDF(self):
+        self.listWidget.takeItem(self.listWidget.currentRow())
+
+    def up_PDF(self):
+
+
+    def down_PDF(self):
+
 
 if __name__ == "__main__":
     import sys
@@ -83,4 +103,3 @@ if __name__ == "__main__":
     ui.setupUi(MainWindow)
     MainWindow.show()
     sys.exit(app.exec_())
-
