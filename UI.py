@@ -9,6 +9,10 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtWidgets import *
 
+from PyPDF2.pdf import *
+import sys
+import os
+
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
@@ -64,6 +68,7 @@ class Ui_MainWindow(object):
         self.pushButton_7.clicked.connect(self.del_PDF)
         self.pushButton_4.clicked.connect(self.up_PDF)
         self.pushButton_5.clicked.connect(self.down_PDF)
+        self.pushButton.clicked.connect(self.merge_PDF)
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
@@ -90,10 +95,37 @@ class Ui_MainWindow(object):
         self.listWidget.takeItem(self.listWidget.currentRow())
 
     def up_PDF(self):
-
+        row = self.listWidget.currentRow()
+        if row > 0:
+            item = self.listWidget.takeItem(row)
+            self.listWidget.insertItem(row-1,item)
+            self.listWidget.setCurrentRow(row-1)
 
     def down_PDF(self):
+        row = self.listWidget.currentRow()
+        if row < self.listWidget.count()-1:
+            item = self.listWidget.takeItem(row)
+            self.listWidget.insertItem(row+1,item)
+            self.listWidget.setCurrentRow(row+1)
 
+    def merge_PDF(self):
+
+        count = self.listWidget.count()
+        print(count)
+        output = PdfFileWriter()
+
+        for x in range(0,count):
+            src = self.listWidget.item(x)
+            print(src.text())
+            input = PdfFileReader(open(src.text(),"rb") )
+            for j in range(input.getNumPages()):
+                output.addPage(input.getPage(j))
+
+        dest = (self.listWidget_2.item(0)).text() + "\\Merged.pdf"
+        print(dest)
+        outstream = open(dest,"wb")
+        output.write(outstream)
+        outstream.close()        
 
 if __name__ == "__main__":
     import sys
